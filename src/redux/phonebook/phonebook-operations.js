@@ -41,3 +41,8 @@ export const delContact = createAsyncThunk(
         }
     }
 )
+
+export const signUpUser = createAsyncThunk(
+    'phonebook/singUp',
+    async (user, )
+)

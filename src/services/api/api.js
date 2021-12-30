@@ -1,16 +1,67 @@
 import axios from "axios"
 
 
-const api = axios.create({
-    baseURL: 'https://61bdb5d12a1dd4001708a0fa.mockapi.io/'
+export const api = axios.create({
+    baseURL: 'https://connections-api.herokuapp.com/'
 })
+
+
+export const token = {
+    set(token){
+        api.defaults.headers.common.Autorization = `Bearer ${token}`
+    },
+    unset(){
+        api.defaults.headers.common.Autorization = ''
+    }
+}
+
+
+export async function signUp(user){
+    try {
+        const response = api.post('users/signup', user)
+        console.log(response)
+        return response
+    } catch (error){
+        return error
+    }
+}
+
+export async function logIn(user){
+    try {
+        const response = api.post('users/login', user)
+        console.log(response)
+        return response
+    } catch (error){
+        return error
+    }
+}
+
+export async function logOut(){
+    try {
+        const response = api.post('users/logout')
+        console.log(response)
+        return response
+    } catch (error){
+        return error
+    }
+}
+
+export async function getUserInformation(){
+    try {
+        const response = api.post('users/current')
+        console.log(response)
+        return response
+    } catch (error){
+        return error
+    }
+}
 
 export async function getAllContacts(){
     try {
         return api.get('contacts')
     } catch (error){
         return error
-    }
+    } 
 }
 
 export async function addContact(contact){
