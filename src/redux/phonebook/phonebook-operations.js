@@ -44,5 +44,21 @@ export const delContact = createAsyncThunk(
 
 export const signUpUser = createAsyncThunk(
     'phonebook/singUp',
-    async (user, )
+    async (userData) => {
+        console.log(userData)
+    }
+)
+
+export const logInUser = createAsyncThunk(
+    'phonebook/login',
+    async (userData) => {
+        console.log(userData)
+        try {
+            const response = await api.logIn(userData)
+            console.log(response)
+            return response
+        } catch (error){
+            return error
+        }
+    }
 )

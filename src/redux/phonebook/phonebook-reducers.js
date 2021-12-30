@@ -1,8 +1,26 @@
-import { createReducer } from '@reduxjs/toolkit'
+import { createReducer, createSlice } from '@reduxjs/toolkit'
 import * as actions from './phonebook-actions'
 import * as operations from './phonebook-operations'
 
 
+const authInitialState = {
+    user: {
+        email: null,
+        name: null,
+    },
+    token: null
+}
+
+const authSlice = createSlice ({
+    name: 'auth',
+    authInitialState,
+    extraReducers:{
+        [operations.logInUser.fulfilled](state, action) {
+            console.log(state)
+            console.log(action)
+        }
+    },
+})
 
 const itemsReducer = createReducer([], {
    [operations.getAllContacts.fulfilled]: (_, action) => action.payload,
@@ -36,5 +54,5 @@ const filterReducer = createReducer('', {
 })
 
 
-export {itemsReducer, filterReducer, loadingReducer}
+export {itemsReducer, filterReducer, loadingReducer, authSlice}
 
