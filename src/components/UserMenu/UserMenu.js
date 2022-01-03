@@ -8,10 +8,10 @@ export default function UserMenu(){
 
     return(
         <>
-            <p>Wellcome, {userName}</p>
-            <LogoutButton />
             <NavLink to="phonebook">Phonebook</NavLink>
             <NavLink to="addContact">Add Contact</NavLink>
+            <p>Wellcome, {userName}</p>
+            <LogoutButton />
         </>
     )
 }

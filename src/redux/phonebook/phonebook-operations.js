@@ -19,7 +19,7 @@ export const addContact = createAsyncThunk(
     async (contact, {rejectWithValue}) => {
         const newContact = {
             name: contact.name,
-            phone: contact.number
+            number: contact.number
         }
         try {
             const {data} = await api.addContact(newContact)

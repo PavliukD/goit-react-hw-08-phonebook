@@ -1,5 +1,4 @@
 import axios from "axios"
-import { useSelector } from "react-redux"
 
 
 export const api = axios.create({
@@ -16,14 +15,6 @@ export const token = {
     }
 }
 
-export function StartPage(){
-    const store  = useSelector((store) => {return store })
-    if (!store.auth.loggedIn){
-        return
-    }
-    token.set(store.auth.token)
-    return
-}
 
 
 export async function signUp(user){
@@ -71,7 +62,9 @@ export async function getAllContacts(){
 }
 
 export async function addContact(contact){
+    console.log(contact)
     try{
+        console.log(contact)
         return api.post('contacts', contact)
     } catch (error){
         return error
