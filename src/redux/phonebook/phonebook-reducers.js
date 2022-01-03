@@ -8,16 +8,29 @@ const authInitialState = {
         email: null,
         name: null,
     },
-    token: null
+    token: null,
+    loggedIn: false,
 }
 
 const authSlice = createSlice ({
     name: 'auth',
-    authInitialState,
+    initialState: authInitialState,
     extraReducers:{
+        [operations.signUpUser.fulfilled](state, action) {
+            state.user = action.payload.user
+            state.token = action.payload.token
+            state.loggedIn = true
+        },
         [operations.logInUser.fulfilled](state, action) {
-            console.log(state)
             console.log(action)
+            state.user = action.payload.user
+            state.token = action.payload.token
+            state.loggedIn = true
+        },
+        [operations.LogoutUser.fulfilled](state, action) {
+            state.user = authInitialState.user
+            state.token = authInitialState.token
+            state.loggedIn = false
         }
     },
 })

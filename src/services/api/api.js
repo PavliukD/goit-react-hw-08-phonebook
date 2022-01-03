@@ -8,10 +8,10 @@ export const api = axios.create({
 
 export const token = {
     set(token){
-        api.defaults.headers.common.Autorization = `Bearer ${token}`
+        api.defaults.headers.common.Authorization = `Bearer ${token}`
     },
     unset(){
-        api.defaults.headers.common.Autorization = ''
+        api.defaults.headers.common.Authorization = ''
     }
 }
 
@@ -19,7 +19,6 @@ export const token = {
 export async function signUp(user){
     try {
         const response = api.post('users/signup', user)
-        console.log(response)
         return response
     } catch (error){
         return error
@@ -29,7 +28,6 @@ export async function signUp(user){
 export async function logIn(user){
     try {
         const response = api.post('users/login', user)
-        console.log(response)
         return response
     } catch (error){
         return error
@@ -39,7 +37,6 @@ export async function logIn(user){
 export async function logOut(){
     try {
         const response = api.post('users/logout')
-        console.log(response)
         return response
     } catch (error){
         return error
@@ -49,7 +46,6 @@ export async function logOut(){
 export async function getUserInformation(){
     try {
         const response = api.post('users/current')
-        console.log(response)
         return response
     } catch (error){
         return error
