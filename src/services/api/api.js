@@ -1,4 +1,5 @@
 import axios from "axios"
+import { useSelector } from "react-redux"
 
 
 export const api = axios.create({
@@ -13,6 +14,15 @@ export const token = {
     unset(){
         api.defaults.headers.common.Authorization = ''
     }
+}
+
+export function StartPage(){
+    const store  = useSelector((store) => {return store })
+    if (!store.auth.loggedIn){
+        return
+    }
+    token.set(store.auth.token)
+    return
 }
 
 

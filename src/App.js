@@ -1,5 +1,4 @@
 import {Routes, Route} from 'react-router-dom'
-// import { useSelector } from 'react-redux';
 import ContactForm from "./components/ContactForm/ContactForm";
 import Filter from "./components/Filter/Filter";
 import ContactList from "./components/ContactList/ContactList";
@@ -9,6 +8,7 @@ import LogoutButton from "./components/LogoutButton/LogoutButton";
 import ShowMeSomeShtBtn from "./components/ShowMeSomeShTBtn/ShowMeSomeShtBtn";
 import PublicRoute from './components/PublicRoute/PublicRoute';
 import PrivateRoute from './components/PrivatRoute/PrivateRoute';
+import Header from './components/Header/Header';
 
 
 
@@ -24,29 +24,30 @@ import PrivateRoute from './components/PrivatRoute/PrivateRoute';
 function App(){
 
 
-    return (
-      <>
-        <Routes>
-          <Route path='/'>
-              <Route path='signup' element={<PublicRoute>
-                <SignUpForm />
-              </PublicRoute>} />
-              <Route path='login' element={<PublicRoute>
-                <LoginForm />
-              </PublicRoute>} />
-          </Route>
-        </Routes>
-        <ShowMeSomeShtBtn />
-        <LogoutButton />
-        <h1>Phonebook</h1>
-        <ContactForm />
-        <h2>Contacts</h2>
-        <Filter />
-        <ContactList />
-      </>
-
-    )
-  
+  return (
+    <div>
+      <ShowMeSomeShtBtn>SHOW!!!</ShowMeSomeShtBtn>
+      <LogoutButton />
+      <Routes>
+        <Route path='/' element={<Header />}>
+            <Route path='signup' element={<PublicRoute>
+              <SignUpForm />
+            </PublicRoute>} />
+            <Route index element={<PublicRoute>
+              <LoginForm />
+            </PublicRoute>} />
+            <Route index element={<PrivateRoute>
+              <ContactForm />
+            </PrivateRoute>}/>
+            <Route path='phonebook'element={<PrivateRoute>
+              <h2>Contacts</h2>
+              <Filter />
+              <ContactList />
+            </PrivateRoute>}/>
+        </Route>
+      </Routes>
+    </div>
+  )  
 }
 
 export default App;

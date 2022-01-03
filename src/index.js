@@ -13,7 +13,7 @@ ReactDOM.render(
         <BrowserRouter>
           <App />
         </BrowserRouter>
-        </PersistGate>
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
