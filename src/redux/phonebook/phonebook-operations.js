@@ -65,6 +65,7 @@ export const logInUser = createAsyncThunk(
             api.token.set(data.token)
             return data
         } catch (error){
+            alert('Please enter correct login or password')
             return error
         }
     }

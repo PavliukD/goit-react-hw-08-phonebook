@@ -1,21 +1,5 @@
-.list{
-    list-style: none;
-    padding-inline-start: 0;
-}
-
-.item{
-    border-bottom: 1px solid blue;
-    padding-bottom: 5px;
-}
-
-.info{
-    font-size: 18px;
-    font-weight: bold;
-}
-
 .button{
-
-    width: 120px;
+    width: 100px;
     height: 40px;
     font-size: 18px;
     font-weight: bold;

@@ -1,0 +1,18 @@
+.authMenu{
+    display: flex;
+    align-content: center;
+    margin-left: auto;
+}
+
+.link{
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+
+}
+
+.link:not(:first-child){
+    margin-left: 10px;
+}
+

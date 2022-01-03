@@ -1,7 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
 import ContactForm from "./components/ContactForm/ContactForm";
-import Filter from "./components/Filter/Filter";
-import ContactList from "./components/ContactList/ContactList";
+import Contacts from './components/Contacts/Contacts';
 import SignUpForm from "./components/SignupForm/SignupForm";
 import LoginForm from "./components/LoginForm/LoginForm";
 import PublicRoute from './components/PublicRoute/PublicRoute';
@@ -36,9 +35,7 @@ function App(){
               <ContactForm />
             </PrivateRoute>}/>
             <Route path='phonebook'element={<PrivateRoute>
-              <h2>Contacts</h2>
-              <Filter />
-              <ContactList />
+              <Contacts />
             </PrivateRoute>}/>
         </Route>
       </Routes>

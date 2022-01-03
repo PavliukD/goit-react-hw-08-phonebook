@@ -28,7 +28,7 @@ export default function ContactList(){
             {contacts.map(contact => {
                 return(
                     <li key = {contact.id} id = {contact.id} className = {s.item}>
-                        <p>{contact.name}: {contact.phone}</p>
+                        <p className={s.info}>{contact.name}: {contact.number}</p>
                         <button onClick={() => onDelete(contact.id)} className = {s.button}>Delete</button>
                     </li>
                 )

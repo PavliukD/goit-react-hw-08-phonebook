@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux"
 import { LogoutUser } from "../../redux/phonebook/phonebook-operations"
+import s from './LogoutButton.module.css'
 
 
 export default function LogoutButton(){
@@ -11,6 +12,6 @@ export default function LogoutButton(){
     }
 
     return(
-        <button type="button" onClick={LogOut}>LogOut</button>
+        <button type="button" onClick={LogOut} className={s.button}>Logout</button>
     )
 }

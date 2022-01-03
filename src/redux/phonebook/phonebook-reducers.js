@@ -31,6 +31,17 @@ const authSlice = createSlice ({
             state.user = authInitialState.user
             state.token = authInitialState.token
             state.loggedIn = false
+        },
+        [operations.logInUser.rejected](state, action) {
+            console.log(action)
+            state.user = ''
+            state.token = ''
+            state.loggedIn = false
+        },
+        [operations.signUpUser.rejected](state, action) {
+            state.user = ''
+            state.token = ''
+            state.loggedIn = false
         }
     },
 })

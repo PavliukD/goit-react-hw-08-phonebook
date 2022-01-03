@@ -1,0 +1,12 @@
+.contacts{
+    margin-top: 20px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    width: 360px;
+    border: 1px solid blue;
+    border-radius: 6px;
+    padding: 15px;
+    text-align: center;
+}

@@ -14,7 +14,7 @@ export default function Header(){
     return(
         <>
             <header className={s.header}>
-                <h1>Phonebook</h1>
+                <h1 className={s.appName}>Phonebook</h1>
                 { logged ? <UserMenu/> : <AuthMenu/>}
             </header> 
             <main>
