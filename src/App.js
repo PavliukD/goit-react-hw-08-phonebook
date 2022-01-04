@@ -13,6 +13,7 @@ import s from './App.module.css'
 
 
 
+
 // const user = {
 //   "name": 'Unga Bunga',
 //   "email": 'unga-bunga@gmail.com',
@@ -34,7 +35,7 @@ function App(){
             <Route path='addContact' element={<PrivateRoute>
               <ContactForm />
             </PrivateRoute>}/>
-            <Route path='phonebook'element={<PrivateRoute>
+            <Route path='/phonebook'element={<PrivateRoute>
               <Contacts />
             </PrivateRoute>}/>
         </Route>

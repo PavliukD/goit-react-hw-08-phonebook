@@ -44,14 +44,14 @@ export const delContact = createAsyncThunk(
 
 export const signUpUser = createAsyncThunk(
     'phonebook/singUp',
-    async (userData) => {
+    async (userData, {rejectWithValue}) => {
         try {
             console.log(userData)
             const { data } = await api.signUp(userData)
             api.token.set(data.token)
             return data
         } catch (error){
-            return error
+            return rejectWithValue(error)
         }
     }
 )
