@@ -62,9 +62,7 @@ export async function getAllContacts(){
 }
 
 export async function addContact(contact){
-    console.log(contact)
     try{
-        console.log(contact)
         return api.post('contacts', contact)
     } catch (error){
         return error
@@ -73,7 +71,8 @@ export async function addContact(contact){
 
 export async function delContact(id){
     try{
-        return api.delete(`contacts/${id}`)
+        const response = await api.delete(`contacts/${id}`)
+        return response
     } catch (error) {
         return error
     }

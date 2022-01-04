@@ -34,8 +34,8 @@ export const delContact = createAsyncThunk(
     'phonebook/delContact',
     async (id, {rejectWithValue}) => {
         try {
-            const {data} = await api.delContact(id)
-            return data
+            await api.delContact(id)
+            return id
         } catch (error){
             return rejectWithValue(error)
         }
@@ -46,7 +46,6 @@ export const signUpUser = createAsyncThunk(
     'phonebook/singUp',
     async (userData, {rejectWithValue}) => {
         try {
-            console.log(userData)
             const { data } = await api.signUp(userData)
             api.token.set(data.token)
             return data
@@ -61,7 +60,6 @@ export const logInUser = createAsyncThunk(
     async (userData) => {
         try {
             const { data } = await api.logIn(userData)
-            console.log(data.token)
             api.token.set(data.token)
             return data
         } catch (error){
@@ -76,7 +74,6 @@ export const LogoutUser = createAsyncThunk(
     async () => {
         try {
             const response = await api.logOut()
-            console.log(response)
             api.token.unset()
             return response
         } catch (error) {

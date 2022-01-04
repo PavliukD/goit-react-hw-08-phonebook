@@ -57,7 +57,7 @@ const itemsReducer = createReducer([], {
         }
         return [...state, action.payload]
    },
-   [operations.delContact.fulfilled]: (state, action) => state.filter(contact => contact.id !== action.payload.id),  
+   [operations.delContact.fulfilled]: (state, action) => {return state.filter(contact => contact.id !== action.payload)},  
 })
 
 const loadingReducer = createReducer(false, {
