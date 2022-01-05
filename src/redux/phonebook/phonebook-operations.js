@@ -50,6 +50,7 @@ export const signUpUser = createAsyncThunk(
             api.token.set(data.token)
             return data
         } catch (error){
+            alert('Please enter correct data')
             return rejectWithValue(error)
         }
     }
